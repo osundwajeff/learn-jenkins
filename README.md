@@ -3,4 +3,4 @@ A repo to learn and test jenkins
 
 Testing github-webhook with Jenkins.
 
-Kartoza tests
+Kartoza tests with status badge
