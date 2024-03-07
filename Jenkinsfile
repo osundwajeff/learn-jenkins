@@ -5,18 +5,17 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh '''
-                cd src
-                for dir in $(find "$(pwd)" -type d -name '*_test'); do
-	                if [ -f "$dir/package.json" ]; then
-    	                echo "Running tests in $dir"
-                        cd $dir
-                        npm install
-                        npm ci
-                        npx playwright test
-                    fi
-                done
-                '''
+                sh 'cd src'
+                def rootDirectory = '.'
+
+                def testDirectories = findFiles(glob: "${rootDirectory}/*_test").collect { it.directory }
+
+                for (dir in testDirectories) {
+                    echo "Running tests in ${dir}"
+                    sh 'cd ${dir}'
+                    sh 'npm install'
+                    sh 'npm ci'
+                    sh 'npx playwright test'
             }
         }
     }
