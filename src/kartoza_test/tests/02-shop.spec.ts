@@ -4,7 +4,7 @@ test('test', async ({ page }) => {
   await page.goto('https://kartoza.com/');
   await expect(page.locator('[id="quick\\ bio"]')).toContainText('Unlock insights from your data with the power of GIS');
   await expect(page.getByRole('link', { name: 'Shop' })).toBeVisible();
-  await page.getByRole('link', { name: 'Go' }).click();
+  await page.getByRole('link', { name: 'Shop' }).click();
   await expect(page.getByRole('main')).toContainText('All Products');
   await expect(page.getByPlaceholder('Search for Products')).toBeEmpty();
   await expect(page.locator('#products-list-area a').filter({ hasText: 'Introduction to QGIS' })).toBeVisible();
