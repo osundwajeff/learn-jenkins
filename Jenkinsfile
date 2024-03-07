@@ -15,6 +15,11 @@ pipeline {
                         npm install
                         npx playwright test
                     fi
+                    if [ $? -eq 0 ]; then
+                        echo "Tests in $dir passed"
+                    else
+                        echo "Tests in $dir failed"
+                    fi
                 done'''
             }
         }
