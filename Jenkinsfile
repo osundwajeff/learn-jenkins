@@ -8,7 +8,7 @@ pipeline {
                 sh 'cd src'
                 script {
                     def rootDirectory = '.'
-                    def testDirectories = sh(script: "find ${rootDirectory} -type d -name '*_test'", returnStatus: true, returnStdout: true).trim().split('\n')
+                    def testDirectories = sh(script: "find ${rootDirectory} -type d -name '*_test'", returnStatus: true, returnStdout: true)
 
                     for (dir in testDirectories) {
                         echo "Running tests in ${dir}"
