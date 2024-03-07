@@ -6,16 +6,17 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 sh 'cd src'
-                def rootDirectory = '.'
+                script {
+                    def rootDirectory = '.'
+                    def testDirectories = findFiles(glob: "${rootDirectory}/*_test").collect { it.directory }
 
-                def testDirectories = findFiles(glob: "${rootDirectory}/*_test").collect { it.directory }
-
-                for (dir in testDirectories) {
-                    echo "Running tests in ${dir}"
-                    sh "cd ${dir}"
-                    sh 'npm install'
-                    sh 'npm ci'
-                    sh 'npx playwright test'
+                    for (dir in testDirectories) {
+                        echo "Running tests in ${dir}"
+                        sh "cd ${dir}"
+                        sh 'npm install'
+                        sh 'npm ci'
+                        sh 'npx playwright test'
+                    }
                 }
             }
         }
