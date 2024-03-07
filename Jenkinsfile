@@ -12,12 +12,12 @@ pipeline {
 
                 for (dir in testDirectories) {
                     echo "Running tests in ${dir}"
-                    sh 'cd ${dir}'
+                    sh "cd ${dir}"
                     sh 'npm install'
                     sh 'npm ci'
                     sh 'npx playwright test'
+                }
             }
         }
     }
-
 }
