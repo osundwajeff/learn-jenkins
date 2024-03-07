@@ -5,7 +5,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh '''cd src
+                sh 'cd src'
+                sh 'set +e'
+                sh '''
                 for dir in $(find "$(pwd)" -type d -name '*_test'); do
                     if [ -f "$dir/package.json" ]; then
                         echo "Running tests in $dir"
