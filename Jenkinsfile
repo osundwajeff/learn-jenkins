@@ -15,6 +15,7 @@ pipeline {
                                 cd $dir
                                 npm install
                                 npx playwright test
+                                continue
                             fi
                         done'''
                     }
