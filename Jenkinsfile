@@ -4,9 +4,9 @@
     stages {
         stage('Test') {
             steps {
-                echo 'Running tests...'
-                sh 'cd src'
                 try {
+                    echo 'Running tests...'
+                    sh 'cd src'
                     sh '''
                     for dir in $(find "$(pwd)" -type d -name '*_test'); do
                         if [ -f "$dir/package.json" ]; then
