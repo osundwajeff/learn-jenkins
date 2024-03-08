@@ -18,7 +18,7 @@ test('karoza website', async ({ page }) => {
   await expect(page.locator('#our-skills')).toContainText('Host, deploy, maintain and support your tech');
   await expect(page.locator('#featured')).toContainText('A Selection of our Projects');
   await page.locator('span').nth(2).click();
-  await expect(page.getByRole('img', { name: 'kartoza portfolio' })).toBeVisible();
+  await expect(page.getByRole('img', { name: 'kartoza partfolio' })).toBeVisible();
   await page.locator('span').nth(3).click();
   await expect(page.getByRole('link', { name: 'View Project' })).toBeVisible();
   await expect(page.locator('#welcome')).toContainText('Why Kartoza?');
