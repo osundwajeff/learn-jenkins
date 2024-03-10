@@ -5,8 +5,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Tests...'
-                sh 'cd src'
-                sh 'cd kartoza_test'
+                sh 'cd src/kartoza_test'
 
                 echo 'Install depencies'
                 sh 'npm install'
