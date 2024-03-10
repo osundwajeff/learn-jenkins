@@ -9,7 +9,7 @@ pipeline {
                 script {
                         sh '''
                                 echo "Running tests.."
-                                cd $dir
+                                cd kartoza_test
                                 npm install
                                 npx playwright test
                             fi
