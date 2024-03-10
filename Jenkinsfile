@@ -4,15 +4,11 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo 'Tests...'
-                sh 'cd src/kartoza_test'
-
-                echo 'Install depencies'
-                sh 'npm install'
-                sh 'npm ci'
-                
                 echo 'Running Tests ...'
-                sh 'npx playwright test'
+                sh '''cd src/kartoza_test
+                npm install
+                npm ci
+                npx playwright test'''
             }
         }
     }
