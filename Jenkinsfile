@@ -2,6 +2,18 @@ pipeline {
     agent { docker { image 'mcr.microsoft.com/playwright:v1.42.1-jammy' } }
 
     stages {
+        stage('Git Clone') {
+                when {
+                    expression { action == 'closed' && isMerged == 'true' && targetBranch == staBranch }
+                }
+                steps('Build Staging') {
+                    echo 'Clone Repository'
+                    git branch: 'main',
+                    //credentialsId: "$gitcredentials",
+                    url: 'https://github.com/osundwajeff/learn-jenkins.git'
+                }
+        }
+    }
         stage('Test') {
             steps {
                 echo 'Running Tests ...'
@@ -11,5 +23,4 @@ pipeline {
                 npx playwright test'''
             }
         }
-    }
 }
