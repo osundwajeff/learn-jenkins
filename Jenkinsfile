@@ -5,7 +5,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running Tests ...'
-                sh '''cd src/kartoza_test
+                sh '''cd src/production-tests
                 npm install
                 npm ci
                 npx playwright test'''
