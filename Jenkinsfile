@@ -13,7 +13,6 @@ pipeline {
                     url: 'https://github.com/osundwajeff/learn-jenkins.git'
                 }
         }
-    }
         stage('Test') {
             steps {
                 echo 'Running Tests ...'
@@ -23,4 +22,5 @@ pipeline {
                 npx playwright test'''
             }
         }
+    }
 }
