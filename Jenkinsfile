@@ -9,7 +9,7 @@ pipeline {
                 steps('Clone Repository') {
                     git branch: 'main',
                     //credentialsId: "$gitcredentials",
-                    url: 'https://github.com/osundwajeff/learn-jenkins.git'
+                    url: 'https://github.com/osundwajeff/test-jenkins.git'
                 }
         }
         stage('Test') {
