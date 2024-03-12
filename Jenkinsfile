@@ -9,7 +9,7 @@ pipeline {
                 steps('Clone Repository') {
                     git branch: 'main',
                     //credentialsId: "$gitcredentials",
-                    url: 'git@github.com:kartoza/GeoHosting.git'
+                    url: 'https://github.com/osundwajeff/learn-jenkins.git'
                 }
         }
         stage('Test') {
