@@ -4,13 +4,12 @@ pipeline {
     stages {
         stage('Git Clone') {
                 when {
-                    expression { action == 'closed' && isMerged == 'true' && targetBranch == staBranch }
+                    expression { action == 'closed' && isMerged == 'true' && targetBranch == 'main' }
                 }
-                steps('Build Staging') {
-                    echo 'Clone Repository'
+                steps('Clone Repository') {
                     git branch: 'main',
                     //credentialsId: "$gitcredentials",
-                    url: 'https://github.com/osundwajeff/learn-jenkins.git'
+                    url: 'git@github.com:kartoza/GeoHosting.git'
                 }
         }
         stage('Test') {
