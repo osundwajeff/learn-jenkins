@@ -3,9 +3,9 @@ pipeline {
 
     stages {
         stage('Git Clone') {
-                when {
-                    expression { action == 'closed' && isMerged == 'true' && targetBranch == 'main' }
-                }
+                //when {
+                  //  expression { action == 'closed' && isMerged == 'true' && targetBranch == 'main' }
+                //}
                 steps('Clone Repository') {
                     git branch: 'main',
                     //credentialsId: "$gitcredentials",
